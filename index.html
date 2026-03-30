@@ -1,629 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub - Download Top Games</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Content Locker Script - Hada li 3titi -->
-    <script type="text/javascript">
-        var ocueZ_Icy_hmlYLc={"it":4596228,"key":"3d01b"};
-    </script>
-    <script src="https://d3v3431sr9puku.cloudfront.net/635a2d9.js"></script>
-    
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - Watch & Download</title>
+    <script type="text/javascript">var kpaBs_UxJ_TYAjWc = {"it":4596228,"key":"3d01b"};</script>
+    <script src="https://d1qt1z4ccvak33.cloudfront.net/f3cb954.js"></script>
     <style>
-        /* Base Styles */
-        :root {
-            --primary-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --dark-color: #2d3436;
-            --light-color: #f5f6fa;
-            --success-color: #00b894;
-            --warning-color: #fdcb6e;
-            --danger-color: #d63031;
-            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
+        body{background:#0b0e17;font-family:'Segoe UI',Arial,sans-serif;color:white;text-align:center;margin:0;padding:0;overflow-x:hidden;}
+        .container{width:90%;margin:auto;padding-bottom:50px;}
+        .logo-container{display:flex;align-items:center;justify-content:center;gap:15px;margin:40px 0 10px 0;}
+        .controller-icon{background:#7c66e3;width:60px;height:35px;border-radius:12px;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(124, 102, 227, 0.3);animation:soft-bounce 2s infinite ease-in-out;}
+        .controller-icon::before{content:'+';position:absolute;left:8px;font-size:20px;font-weight:bold;color:#2a2252;}
+        .controller-icon::after{content:'';position:absolute;right:10px;width:6px;height:6px;background:#2a2252;border-radius:50%;box-shadow:0 8px 0 #2a2252;}
+        .logo-text-new{font-size:45px;font-weight:800;letter-spacing:-1px;}
+        .intro-text {max-width: 800px; margin: 0 auto 20px; padding: 0 20px;}
+        .intro-text h2 {color: #7c66e3; font-size: 26px; margin-bottom: 12px; font-weight: 800;}
+        .intro-text p {color: #ffffff; font-size: 16px; line-height: 1.6;}
+        .coming-soon {display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; padding: 10px 25px; border-radius: 12px; font-size: 14px; margin-bottom: 40px; animation: zoomPulse 2.5s infinite ease-in-out;}
+        .clock-icon {width: 16px; height: 16px; border: 2px solid #7c66e3; border-radius: 50%; position: relative;}
+        .clock-icon::after {content: ''; position: absolute; width: 6px; height: 2px; background: #7c66e3; top: 7px; left: 7px; transform-origin: left; animation: clock-spin 3s linear infinite;}
+        @keyframes zoomPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes clock-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes soft-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+        .buttons{margin-bottom:35px;}
+        .filter-btn{padding:10px 25px; border-radius:20px; border:none; margin:5px; cursor:pointer; background:#1f2638; color:white; font-weight:600;}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));gap:20px;}
+        .card{background:#111525;padding:15px;border-radius:20px;transition:0.3s;}
+        .card:hover{transform:translateY(-8px);}
+        .card img{width:100%;border-radius:15px;margin-bottom:10px;}
+        .title{font-size:15px;font-weight:bold;margin-bottom:5px;}
+        .platform{font-size:11px;color:#888;margin-bottom:4px;}
+        .size { font-size: 11px; color: #7c66e3; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+        .button-group{display:flex;flex-direction:column;gap:8px;align-items:center;}
+        .play-btn{width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#f97316,#e11d48); color:white; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+        .download-btn{padding:10px 20px; border-radius:30px; border:none; cursor:pointer; font-weight:bold; background:linear-gradient(135deg,#8b5cf6,#06b6d4); color:white;}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: var(--light-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: rgba(26, 26, 46, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--box-shadow);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--light-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            color: var(--primary-color);
-            margin-right: 0.5rem;
-        }
-
-        .hero {
-            padding: 8rem 0 4rem;
-            text-align: center;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%236c5ce7" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,122.7C672,128,768,160,864,170.7C960,181,1056,171,1152,165.3C1248,160,1344,160,1392,160L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat bottom;
-            background-size: contain;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #a29bfe, #6c5ce7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeIn 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: #b2bec3;
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .game-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: var(--box-shadow);
-            animation: fadeUp 0.5s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .game-thumbnail {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            aspect-ratio: 1 / 1;
-        }
-
-        .game-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .game-card:hover .game-thumbnail img {
-            transform: scale(1.1);
-        }
-
-        .game-info {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-            gap: 1.2rem;
-        }
-
-        .game-title {
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin: 0;
-        }
-
-        .game-logo {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .game-stats {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            font-size: 0.9rem;
-            color: #b2bec3;
-            flex-wrap: wrap;
-            margin: 0;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .stat i {
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-
-        .trailer-section {
-            display: flex;
-            justify-content: center;
-            margin: 0.5rem 0;
-        }
-
-        .game-trailer {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(108, 92, 231, 0.4);
-        }
-
-        .game-trailer:hover {
-            background: var(--secondary-color);
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px rgba(108, 92, 231, 0.6);
-        }
-
-        .download-btn {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            text-decoration: none;
-            margin: 0;
-        }
-
-        .download-btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
-        }
-
-        .more-games-section {
-            text-align: center;
-            padding: 3rem 2rem;
-            margin: 2rem 0;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid rgba(108, 92, 231, 0.2);
-            backdrop-filter: blur(5px);
-        }
-
-        .more-games-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--light-color);
-        }
-
-        .more-games-title i {
-            color: var(--primary-color);
-            margin-right: 0.5rem;
-        }
-
-        .more-games-message {
-            font-size: 1.3rem;
-            color: #b2bec3;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
-
-        .coming-soon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: rgba(108, 92, 231, 0.15);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            border: 1px solid var(--primary-color);
-        }
-
-        .coming-soon-badge i {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
-
-        .coming-soon-badge span {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #a29bfe;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: var(--dark-color);
-            width: 90%;
-            max-width: 900px;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        footer {
-            background: rgba(26, 26, 46, 0.8);
-            padding: 3rem 0;
-            margin-top: 4rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--light-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-logo i {
-            color: var(--primary-color);
-            margin-right: 0.5rem;
-        }
-
-        .wish-message {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--light-color);
-            text-align: center;
-            max-width: 800px;
-            line-height: 1.8;
-        }
-
-        .wish-message i {
-            color: var(--primary-color);
-            margin: 0 0.5rem;
-        }
-
-        .copyright {
-            color: #b2bec3;
-            font-size: 0.9rem;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1rem; }
-            .games-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
-            .game-stats { gap: 1rem; }
-            .wish-message { font-size: 1.2rem; padding: 0 1rem; }
-            .footer-logo { font-size: 2rem; }
-            .game-info { gap: 1rem; }
-            .more-games-title { font-size: 1.5rem; }
-            .more-games-message { font-size: 1.1rem; }
-            .coming-soon-badge { padding: 0.6rem 1.5rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero { padding: 6rem 0 2rem; }
-            .hero h1 { font-size: 2rem; }
-            .games-grid { grid-template-columns: 1fr; }
-            .game-stats { flex-direction: column; gap: 0.8rem; }
-            .stat { flex-direction: row; justify-content: center; }
-            .stat i { margin-bottom: 0; margin-right: 0.5rem; }
-            .wish-message { font-size: 1.1rem; }
-            .footer-logo { font-size: 1.8rem; }
-            .game-info { gap: 0.8rem; }
-            .more-games-section { padding: 2rem 1rem; }
-            .more-games-message { font-size: 1rem; }
-        }
+        /* Video Popup Style */
+        #vModal{display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); align-items:center; justify-content:center;}
+        .vContent{position:relative; width:90%; max-width:800px; aspect-ratio:16/9;}
+        .vClose{position:absolute; top:-40px; right:0; color:white; font-size:35px; cursor:pointer;}
+        iframe{width:100%; height:100%; border-radius:10px; border:2px solid #7c66e3;}
     </style>
 </head>
 <body>
-    <header>
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-gamepad"></i>
-                GameHub
-            </a>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Discover Amazing Games</h1>
-            <p>Here you will find the best mobile games for Android and iPhone that you won't find on the Play Store or App Store, including paid games for free. Download your game now and start playing!</p>
-        </div>
-    </section>
-
-    <main class="container">
-        <div class="games-grid" id="games-container"></div>
-
-        <div class="more-games-section">
-            <div class="more-games-title">
-                <i class="fas fa-gamepad"></i>
-                More Games
-            </div>
-            <div class="more-games-message">
-                Other Games will be added
-            </div>
-            <div class="coming-soon-badge">
-                <i class="fas fa-clock"></i>
-                <span>Stay tuned for more amazing games!</span>
-            </div>
-        </div>
-    </main>
-
-    <div class="modal" id="video-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-modal">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="video-container">
-                <iframe id="yt-player" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
+<div class="container">
+    <div class="logo-container"><div class="controller-icon"></div><div class="logo-text-new">GameHub</div></div>
+    <div class="intro-text">
+        <h2>Discover Amazing Games</h2>
+        <p><strong>Here you will find the best mobile games for android and ios that you won't find on the Play Store or App Store, including paid games for free.</p>
     </div>
+    <div class="coming-soon"><div class="clock-icon"></div>Other Games will be added</div>
+    <div class="buttons">
+        <button class="filter-btn" onclick="filterGames('all')">All</button>
+        <button class="filter-btn" onclick="filterGames('android')">Android</button>
+        <button class="filter-btn" onclick="filterGames('ios')">iOS</button>
+    </div>
+    
+    <div class="grid">
+      
+      
+        <div class="card android"><img src="https://apkomtk.com/wp-content/uploads/2025/12/Red-Dead-Redemption.jpg"><div class="title">Red Dead Redemption</div><div class="platform">📱 Android</div><div class="size">2.82 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/Bgvy-38nuD0?si=ubK3nj4lMyHHtr-t')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://apkvision.org/wp-content/uploads/2018/08/fortnite-2-140x140.png"><div class="title">
+Fortnite</div><div class="platform">📱 Android</div><div class="size">353 MB</div><div class="button-group"><button onclick="showV('https://youtu.be/B9TS-8DIzLw?si=WY97zMT3meIc_0RE')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://apkomtk.com/wp-content/uploads/2025/03/GTA_San_Andreas-.png"><div class="title">GTA San Andreas</div><div class="platform">📱 Android</div><div class="size">2.48 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/8yIwuSQQMjE?si=X1DHMZ43q3-kymzR')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://i.imgur.com/A1vVFSJ.jpeg"><div class="title">Truck Pro USA</div><div class="platform">📱 Android</div><div class="size">1.39 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/VVqaOJzDX4k?si=dKq_wbcLzMoLJoUT')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://i.imgur.com/yQiqNPt.jpeg"><div class="title">Little Nightmares</div><div class="platform">📱 Android</div><div class="size">1.15 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/O4JdtO-GTeQ?si=a_nbCXOCHju2kjmC')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202207/1509/tQsLe6PofTKMaTzqPk2dB65d.png?w=440&thumb=false"><div class="title">Bright Memory Infinite</div><div class="platform">📱 Android</div><div class="size">2.36 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/mp2svVcxqFw?si=CEwikT5YgbOuGt54')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://i.imgur.com/FhyEU1O.jpeg"><div class="title">Spiritfarer</div><div class="platform">📱 Android</div><div class="size">1.37 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/boFxRFioDLY?si=pHzSDZR7EmFmVS23')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://i.imgur.com/ttb347N.jpeg"><div class="title">Street Fighter 4</div><div class="platform">📱 Android</div><div class="size">2.11 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/6L7eRCKWtBY?si=OH_ds7OuiriGjVyU')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://i.imgur.com/MRxUMC0.jpeg"><div class="title">Ash Of God Redemption</div><div class="platform">📱 Android</div><div class="size">1.94 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/sWnFMvkOoiM?si=KOLJX6PM9x-k_QNF')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card android"><img src="https://apkomtk.com/wp-content/uploads/2025/04/NARUTO-Ultimate-Ninja-STORM.jpg"><div class="title">Naruto</div><div class="platform">📱 Android</div><div class="size">3.39 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/2S1XH_qzMgc?si=ZqOUXXpH2ODDhH3K')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      
+      
+        
+        
+        
+        <div class="card ios"><img src="https://ipaomtk.com/wp-content/uploads/2024/06/246x0w-6.jpg"><div class="title">Assassins Creed Mirage</div><div class="platform">🍏 iOS</div><div class="size">3.77 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/epegPjQk5oQ?si=Y4wQUrwnWkY6g-7a')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://apkvision.org/wp-content/uploads/2018/08/fortnite-2-140x140.png"><div class="title">Fortnite</div><div class="platform">🍏 iOS</div><div class="size">2.84 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/B9TS-8DIzLw?si=WY97zMT3meIc_0RE')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://pdacdn.com/app/68b6ac5f89cdb/53242c5118360ca548a8b20271be2f57.png"><div class="title">Hitman World of Assassination</div><div class="platform">🍏 iOS</div><div class="size">3.06 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/IqhYUJYW8pA?si=QXd4m3hmbmxQakyS')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://apkomtk.com/wp-content/uploads/2025/12/Red-Dead-Redemption.jpg"><div class="title">Red Dead Redemption</div><div class="platform">🍏 iOS</div><div class="size">2.82 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/Bgvy-38nuD0?si=ubK3nj4lMyHHtr-t')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://apkomtk.com/wp-content/uploads/2025/03/GTA_San_Andreas-.png"><div class="title">GTA San Andreas</div><div class="platform">🍏 iOS</div><div class="size">2.00 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/8yIwuSQQMjE?si=X1DHMZ43q3-kymzR')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202207/1509/tQsLe6PofTKMaTzqPk2dB65d.png?w=440&thumb=false"><div class="title">Bright Memory Infinite</div><div class="platform">🍏 iOS</div><div class="size">2.17 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/mp2svVcxqFw?si=CEwikT5YgbOuGt54')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://i.imgur.com/yQiqNPt.jpeg"><div class="title">Little Nightmares</div><div class="platform">🍏 iOS</div><div class="size">1.82 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/O4JdtO-GTeQ?si=a_nbCXOCHju2kjmC')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://ipaomtk.com/wp-content/uploads/2023/07/The-Amazing-Spider-Man-2.png"><div class="title">The Amazing Spider-Man 2</div><div class="platform">🍏 iOS</div><div class="size">751 MB</div><div class="button-group"><button onclick="showV('https://youtu.be/fBQABZpPoSQ?si=uPBGtyvj9f5ajMns')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://apkomtk.com/wp-content/uploads/2025/04/NARUTO-Ultimate-Ninja-STORM.jpg"><div class="title">Naruto</div><div class="platform">🍏 iOS</div><div class="size">3.04 GB</div><div class="button-group"><button onclick="showV('https://youtu.be/2S1XH_qzMgc?si=ZqOUXXpH2ODDhH3K')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+      
+      <div class="card ios"><img src="https://ipaomtk.com/wp-content/uploads/2026/01/Truck-Simulator-Big-Rigs.webp"><div class="title">Truck Simulator Big Rigs</div><div class="platform">🍏 iOS</div><div class="size">955 MB</div><div class="button-group"><button onclick="showV('https://youtu.be/yfSU_CLrtZA?si=fWYDBSPpJR4xiaUo')" class="play-btn">▶</button><button onclick="_Tu()" class="download-btn">Download</button></div></div>
+        
+        
+    </div>
+</div>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <i class="fas fa-gamepad"></i>
-                GameHub
-            </div>
-            <div class="wish-message">
-                <i class="fas fa-gamepad"></i> 
-                We wish you endless fun and exciting adventures with our games! 
-                <i class="fas fa-heart"></i> 
-                Enjoy your gaming experience to the fullest!
-                <i class="fas fa-gamepad"></i>
-            </div>
-            <p class="copyright">© 2023 GameHub. All rights reserved.</p>
-        </div>
-    </footer>
+<div id="vModal" onclick="hideV()">
+    <div class="vContent" onclick="event.stopPropagation()">
+        <span class="vClose" onclick="hideV()">&times;</span>
+        <iframe id="vFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
 
-    <script>
-        // Game data - liens dyal download t7aydo
-        const games = [
-            { id: 1, title: "Bright Memory Infinite", logo: "https://image.api.playstation.com/vulcan/ap/rnd/202207/1509/tQsLe6PofTKMaTzqPk2dB65d.png?w=440&thumb=false", image: "https://image.api.playstation.com/vulcan/ap/rnd/202207/1509/tQsLe6PofTKMaTzqPk2dB65d.png?w=440&thumb=false", size: "1.14 GB", downloads: "2.4 M", rating: "4.8", trailer: "https://www.youtube.com/embed/phVF4gvknsM?si=XMguD8peOYqBY76Q", downloadLink: "#" },
-            { id: 2, title: "Gta San Andreas", logo: "https://images.seeklogo.com/logo-png/23/1/grand-theft-auto-san-andreas-logo-png_seeklogo-232812.png?v=1957908360816934384", image: "https://images.seeklogo.com/logo-png/23/1/grand-theft-auto-san-andreas-logo-png_seeklogo-232812.png?v=1957908360816934384", size: "1.10 GB", downloads: "1.8 M", rating: "4.7", trailer: "https://www.youtube.com/embed/bS22WPNJD2A?si=_vrOLj2Zk5T3Q5xq", downloadLink: "#" },
-            { id: 3, title: "Minecraft", logo: "https://i.imgur.com/gNVePyO.jpeg", image: "https://i.imgur.com/gNVePyO.jpeg", size: "602 MB", downloads: "1.5 M", rating: "4.6", trailer: "https://www.youtube.com/embed/X-fMtNOS_gU?si=IePRvYr_a3gsQFff", downloadLink: "#" },
-            { id: 4, title: "Street Fighter 4", logo: "https://i.imgur.com/ttb347N.jpeg", image: "https://i.imgur.com/ttb347N.jpeg", size: "865 MB", downloads: "3.1 M", rating: "4.9", trailer: "https://www.youtube.com/embed/_3_rt9Rn6yc?si=jRxuWVPDlHDhcKDn", downloadLink: "#" },
-            { id: 5, title: "Arcane Quest Legends 2", logo: "https://i.imgur.com/Dz4d7yc.jpeg", image: "https://i.imgur.com/Dz4d7yc.jpeg", size: "695 MB", downloads: "2.1 M", rating: "4.5", trailer: "https://www.youtube.com/embed/O32wwL8TCng?si=x7338RGVVcJnH1px", downloadLink: "#" },
-            { id: 6, title: "Truck Pro USA", logo: "https://i.imgur.com/A1vVFSJ.jpeg", image: "https://i.imgur.com/A1vVFSJ.jpeg", size: "1.13 GB", downloads: "1.9 M", rating: "4.7", trailer: "https://www.youtube.com/embed/NOTCPBfnjxc?si=8LSJ-wYk6OXaaqYt", downloadLink: "#" },
-            { id: 7, title: "Spiritfarer", logo: "https://i.imgur.com/FhyEU1O.jpeg", image: "https://i.imgur.com/FhyEU1O.jpeg", size: "1.04 GB", downloads: "1.7 M", rating: "4.5", trailer: "https://www.youtube.com/embed/UrTL2YeoRZQ?si=FcwOTwN3NxAyr-qB", downloadLink: "#" },
-            { id: 8, title: "Little Nightmares", logo: "https://i.imgur.com/yQiqNPt.jpeg", image: "https://i.imgur.com/yQiqNPt.jpeg", size: "912 MB", downloads: "1.3 M", rating: "4.6", trailer: "https://www.youtube.com/embed/SA2jH13CdMA?si=Whl7CYgFGO8wiDyx", downloadLink: "#" },
-            { id: 9, title: "Magic Rampage", logo: "https://i.imgur.com/z6AVHDd.jpeg", image: "https://i.imgur.com/z6AVHDd.jpeg", size: "146 MB", downloads: "2.6 M", rating: "4.3", trailer: "https://www.youtube.com/embed/iUaPvIPMUCU?si=zZiWfTHXka9YlSba", downloadLink: "#" },
-            { id: 10, title: "Demon Hunter Premium", logo: "https://lh3.googleusercontent.com/JbwZyvdw8Mtye9pEOu35Fl-eOGKlnHTNLBYTsoSYcgm9M4k-njlvJQZbO_ZcnFSvl1Lcs2EKs85c5AEM-32c-1Oun0Lx5KR2kK-HvjAY01-fnMpP=s128-rp-e7", image: "https://lh3.googleusercontent.com/JbwZyvdw8Mtye9pEOu35Fl-eOGKlnHTNLBYTsoSYcgm9M4k-njlvJQZbO_ZcnFSvl1Lcs2EKs85c5AEM-32c-1Oun0Lx5KR2kK-HvjAY01-fnMpP=s128-rp-e7", size: "1.01 GB", downloads: "2.3 M", rating: "4.7", trailer: "https://www.youtube.com/embed/ARXOAU0ZTNw?si=Sc7jnkidcT0DT5z8", downloadLink: "#" },
-            { id: 11, title: "Haak", logo: "https://assets-prd.ignimgs.com/2022/08/29/haak-button-2-1661808280487.jpg?width=300&crop=1%3A1%2Csmart&auto=webp", image: "https://assets-prd.ignimgs.com/2022/08/29/haak-button-2-1661808280487.jpg?width=300&crop=1%3A1%2Csmart&auto=webp", size: "405 MB", downloads: "2.8 M", rating: "4.5", trailer: "https://www.youtube.com/embed/c161HKeNKoI?si=qalkHZxx3ppJc8ZU", downloadLink: "#" },
-            { id: 12, title: "Ash Of God Redemption", logo: "https://i.imgur.com/MRxUMC0.jpeg", image: "https://i.imgur.com/MRxUMC0.jpeg", size: "1.98 GB", downloads: "1.6 M", rating: "4.5", trailer: "https://www.youtube.com/embed/k_j0fw8jh8M?si=wcN-Vk2Ca2uacxSe", downloadLink: "#" }
-        ];
+<script>
+    // Logic l-jdid bach t7et l-link kamel bo7do
+    function getYTID(url) {
+        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        return (match && match[2].length == 11) ? match[2] : null;
+    }
 
-        const gamesContainer = document.getElementById('games-container');
-        const videoModal = document.getElementById('video-modal');
-        const closeModal = document.getElementById('close-modal');
-        const ytPlayer = document.getElementById('yt-player');
-
-        // Hadhi hiya lfunction li tft7 content locker - b tari9a sahiha
-        function openContentLocker() {
-            // Check if the locker's function exists - lfunction f lscript li 3titi tban smiyetha "ocueZ_Icy_hmlYLc" machi "_HL"
-            if (typeof ocueZ_Icy_hmlYLc !== 'undefined') {
-                console.log("Content locker ready, opening...");
-                // Hna kayna lfunction dyal locker
-                if (typeof _HL !== 'undefined' && typeof _HL === 'function') {
-                    _HL();
-                } else {
-                    // Bhal ma lfunction f lscript li 3titi machi _HL, hadchi ykhrj lik popup
-                    alert("Please complete the verification to continue downloading");
-                    // Hna t9der tzid lcode dyal locker li 3ndek
-                    // Ouverture dyal locker b tari9a manual
-                    var lockerScript = document.createElement('script');
-                    lockerScript.src = "https://d3v3431sr9puku.cloudfront.net/635a2d9.js";
-                    document.head.appendChild(lockerScript);
-                }
-            } else {
-                alert("Loading content locker, please try again in a moment.");
-                // Reload the locker script
-                var lockerScript = document.createElement('script');
-                lockerScript.src = "https://d3v3431sr9puku.cloudfront.net/635a2d9.js";
-                document.head.appendChild(lockerScript);
-            }
+    function showV(fullUrl) {
+        var videoId = getYTID(fullUrl);
+        if(videoId) {
+            document.getElementById('vFrame').src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+            document.getElementById('vModal').style.display = "flex";
+        } else {
+            alert("Lien YouTube ghalt!");
         }
+    }
 
-        function displayGames() {
-            games.forEach(game => {
-                const gameCard = document.createElement('div');
-                gameCard.classList.add('game-card');
-                gameCard.innerHTML = `
-                    <div class="game-thumbnail">
-                        <img src="${game.image}" alt="${game.title}">
-                    </div>
-                    <div class="game-info">
-                        <h3 class="game-title">
-                            <img src="${game.logo}" alt="${game.title} Logo" class="game-logo">
-                            ${game.title}
-                        </h3>
-                        <div class="game-stats">
-                            <div class="stat">
-                                <i class="fas fa-download"></i>
-                                <span>${game.downloads}</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-hdd"></i>
-                                <span>${game.size}</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>${game.rating}</span>
-                            </div>
-                        </div>
-                        <div class="trailer-section">
-                            <button class="game-trailer" data-trailer="${game.trailer}">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <button class="download-btn" data-game-id="${game.id}">Download Now</button>
-                    </div>
-                `;
-                gamesContainer.appendChild(gameCard);
-            });
+    function hideV() {
+        document.getElementById('vModal').style.display = "none";
+        document.getElementById('vFrame').src = "";
+    }
 
-            document.querySelectorAll('.game-trailer').forEach(button => {
-                button.addEventListener('click', () => {
-                    const trailerUrl = button.getAttribute('data-trailer');
-                    ytPlayer.src = trailerUrl;
-                    videoModal.style.display = 'flex';
-                });
-            });
-
-            document.querySelectorAll('.download-btn').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    openContentLocker();
-                });
-            });
-        }
-
-        closeModal.addEventListener('click', () => {
-            videoModal.style.display = 'none';
-            ytPlayer.src = '';
-        });
-
-        videoModal.addEventListener('click', (e) => {
-            if (e.target === videoModal) {
-                videoModal.style.display = 'none';
-                ytPlayer.src = '';
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            displayGames();
-            document.querySelectorAll('.game-card').forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
-        });
-    </script>
+    function filterGames(type){
+        let games=document.querySelectorAll(".card");
+        games.forEach(game=>{ (type==="all"||game.classList.contains(type))?game.style.display="block":game.style.display="none"; });
+    }
+</script>
 </body>
 </html>
